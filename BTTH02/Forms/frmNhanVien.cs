@@ -1,4 +1,5 @@
-﻿using QuanLyBanHang.Data;
+﻿using BTTH02.Helper;
+using QuanLyBanHang.Data;
 using QuanLyBanHang.Data.Entity;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,6 @@ using System.Windows.Forms;
 
 namespace QuanLyBanHang.Forms
 {
-    public static class BC
-    {
-        public static string HashPassword(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password);
-        }
-    }
     public partial class frmNhanVien : Form
     {
         QLBHDbContext context = new QLBHDbContext(); // Khởi tạo biến ngữ cảnh CSDL
