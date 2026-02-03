@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuanLyBanHang.Data.Entity
+﻿namespace QuanLyBanHang.Data.Entity
 {
-    internal class HoaDon_ChiTiet
+    public class HoaDon_ChiTiet
     {
         public int ID { get; set; }
         public int HoaDonID { get; set; }

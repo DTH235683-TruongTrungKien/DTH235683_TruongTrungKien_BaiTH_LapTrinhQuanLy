@@ -21,4 +21,8 @@
     <PackageReference Include="NET451.Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>

@@ -107,5 +107,10 @@ namespace QuanLyBanHang.Forms
         {
             Close();
         }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }
