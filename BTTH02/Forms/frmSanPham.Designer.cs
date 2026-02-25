@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dataGridView = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             TenLoai = new DataGridViewTextBoxColumn();
@@ -133,8 +133,8 @@
             // DonGia
             // 
             DonGia.DataPropertyName = "DonGia";
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleRight;
-            DonGia.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
+            DonGia.DefaultCellStyle = dataGridViewCellStyle3;
             DonGia.FillWeight = 137.061386F;
             DonGia.HeaderText = "Đơn giá";
             DonGia.MinimumWidth = 6;
@@ -143,8 +143,8 @@
             // HinhAnh
             // 
             HinhAnh.DataPropertyName = "HinhAnh";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleRight;
-            HinhAnh.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleRight;
+            HinhAnh.DefaultCellStyle = dataGridViewCellStyle4;
             HinhAnh.FillWeight = 137.061386F;
             HinhAnh.HeaderText = "Hình ảnh";
             HinhAnh.MinimumWidth = 6;
@@ -339,6 +339,7 @@
             // numDonGia
             // 
             numDonGia.Location = new Point(538, 67);
+            numDonGia.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
             numDonGia.Name = "numDonGia";
             numDonGia.Size = new Size(202, 27);
             numDonGia.TabIndex = 25;
@@ -346,6 +347,7 @@
             // numSoLuong
             // 
             numSoLuong.Location = new Point(538, 32);
+            numSoLuong.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numSoLuong.Name = "numSoLuong";
             numSoLuong.Size = new Size(202, 27);
             numSoLuong.TabIndex = 24;
