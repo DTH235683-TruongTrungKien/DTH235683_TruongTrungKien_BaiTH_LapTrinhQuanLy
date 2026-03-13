@@ -12,5 +12,9 @@ namespace BTTH02.Helper
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
+        public static bool Verify(string password, string hassedPassword)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, hassedPassword);
+        }
     }
 }

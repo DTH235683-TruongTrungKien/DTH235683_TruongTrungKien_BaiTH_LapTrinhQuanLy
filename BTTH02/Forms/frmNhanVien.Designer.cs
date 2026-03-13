@@ -1,4 +1,7 @@
-﻿namespace QuanLyBanHang.Forms
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+namespace QuanLyBanHang.Forms
 {
     partial class frmNhanVien
     {
@@ -68,7 +71,6 @@
             // sqlCommand1
             // 
             sqlCommand1.CommandTimeout = 30;
-            sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
             // txtDiaChi
             // 
@@ -198,7 +200,7 @@
             // cboQuyenHan
             // 
             cboQuyenHan.FormattingEnabled = true;
-            cboQuyenHan.Items.AddRange(new object[] { "Quản lý", "Nhân viên" });
+            cboQuyenHan.Items.AddRange(new object[] { "Nhân viên", "Quản lý" });
             cboQuyenHan.Location = new Point(576, 100);
             cboQuyenHan.Name = "cboQuyenHan";
             cboQuyenHan.Size = new Size(164, 28);

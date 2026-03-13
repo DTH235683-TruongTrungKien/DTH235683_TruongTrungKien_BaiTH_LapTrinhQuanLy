@@ -1,4 +1,8 @@
-﻿namespace BTTH02.Forms
+﻿using Microsoft.Data.SqlClient;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+namespace BTTH02.Forms
 {
     partial class frmHoaDon_ChiTiet
     {
@@ -174,7 +178,6 @@
             // sqlCommand1
             // 
             sqlCommand1.CommandTimeout = 30;
-            sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
             // groupBox3
             // 

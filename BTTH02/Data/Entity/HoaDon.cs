@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 namespace QuanLyBanHang.Data.Entity
 {
     public class HoaDon

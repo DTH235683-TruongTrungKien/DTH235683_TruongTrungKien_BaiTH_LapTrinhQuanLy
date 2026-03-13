@@ -2,16 +2,11 @@
 using ClosedXML.Excel;
 using QuanLyBanHang.Data;
 using QuanLyBanHang.Data.Entity;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
-
+using System.Collections.Generic;
+using System.Linq;
 namespace QuanLyBanHang.Forms
 {
     public partial class frmNhanVien : Form
@@ -50,11 +45,15 @@ namespace QuanLyBanHang.Forms
             bindingSource.DataSource = nv;
             txtHoVaTen.DataBindings.Clear();
             txtHoVaTen.DataBindings.Add("Text", bindingSource, "HoVaTen", false, DataSourceUpdateMode.Never);
-            // Tương tự đối với txtDienThoai, txtDiaChi, txtTenDangNhap
+            txtDiaChi.DataBindings.Clear();
+            txtDiaChi.DataBindings.Add("Text", bindingSource, "DiaChi", false, DataSourceUpdateMode.Never);
+            txtDienThoai.DataBindings.Clear();
+            txtDienThoai.DataBindings.Add("Text", bindingSource, "DienThoai", false, DataSourceUpdateMode.Never);
+            txtTenDangNhap.DataBindings.Clear();
+            txtTenDangNhap.DataBindings.Add("Text", bindingSource, "TenDangNhap", false, DataSourceUpdateMode.Never);
             cboQuyenHan.DataBindings.Clear();
             cboQuyenHan.DataBindings.Add("SelectedIndex", bindingSource, "QuyenHan", false, DataSourceUpdateMode.Never);
             dataGridView.DataSource = bindingSource;
-
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -68,13 +67,13 @@ namespace QuanLyBanHang.Forms
             txtMatKhau.Clear();
             cboQuyenHan.Text = "";
         }
-private void btnSua_Click(object sender, EventArgs e)
+        private void btnSua_Click(object sender, EventArgs e)
         {
             xuLyThem = false;
             BatTatChucNang(true);
             id = Convert.ToInt32(dataGridView.CurrentRow.Cells["ID"].Value.ToString());
         }
-private void btnLuu_Click(object sender, EventArgs e)
+        private void btnLuu_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtHoVaTen.Text))
                 MessageBox.Show("Vui lòng nhập họ và tên nhân viên?", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -96,7 +95,7 @@ private void btnLuu_Click(object sender, EventArgs e)
                         nv.DiaChi = txtDiaChi.Text;
                         nv.TenDangNhap = txtTenDangNhap.Text;
                         nv.MatKhau = BC.HashPassword(txtMatKhau.Text); // Mã hóa mật khẩu
-                        nv.QuyenHan = cboQuyenHan.SelectedIndex == 0 ? true : false;
+                        nv.QuyenHan = cboQuyenHan.SelectedIndex == 1;
                         context.NhanVien.Add(nv);
                         context.SaveChanges();
                     }
@@ -110,7 +109,7 @@ private void btnLuu_Click(object sender, EventArgs e)
                         nv.DienThoai = txtDienThoai.Text;
                         nv.DiaChi = txtDiaChi.Text;
                         nv.TenDangNhap = txtTenDangNhap.Text;
-                        nv.QuyenHan = cboQuyenHan.SelectedIndex == 0 ? true : false;
+                        nv.QuyenHan = cboQuyenHan.SelectedIndex == 1;
                         context.NhanVien.Update(nv);
                         if (string.IsNullOrEmpty(txtMatKhau.Text))
                             context.Entry(nv).Property(x => x.MatKhau).IsModified = false; // Giữ nguyên mật khẩu cũ
@@ -121,7 +120,7 @@ private void btnLuu_Click(object sender, EventArgs e)
                 frmNhanVien_Load(sender, e);
             }
         }
-private void btnXoa_Click(object sender, EventArgs e)
+        private void btnXoa_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Xác nhận xóa nhân viên " + txtHoVaTen.Text + "?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -135,7 +134,7 @@ private void btnXoa_Click(object sender, EventArgs e)
                 frmNhanVien_Load(sender, e);
             }
         } 
-private void btnHuyBo_Click(object sender, EventArgs e)
+        private void btnHuyBo_Click(object sender, EventArgs e)
         {
             frmNhanVien_Load(sender, e);
         }
@@ -196,7 +195,7 @@ private void btnHuyBo_Click(object sender, EventArgs e)
                                 nv.DienThoai = r["DienThoai"].ToString();
                                 nv.DiaChi = r["DiaChi"].ToString();
                                 nv.TenDangNhap = r["TenDangNhap"].ToString();
-                                nv.QuyenHan = r["QuyenHan"].Equals("True") ? true : false;
+                                nv.QuyenHan = Convert.ToBoolean(r["QuyenHan"]);
                                 context.NhanVien.Add(nv);
                             }
                             context.SaveChanges();

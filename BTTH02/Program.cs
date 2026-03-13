@@ -1,5 +1,7 @@
 using BTTH02.Forms;
+using System;
 using QuanLyBanHang.Forms;
+using System.Windows.Forms;
 
 namespace QuanLyBanHang
 {
@@ -13,13 +15,15 @@ namespace QuanLyBanHang
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmLoaiSanPham());
             //Application.Run(new frmHangSanXuat());
             //Application.Run(new frmKhachHang());
             //Application.Run(new frmNhanVien());
             //Application.Run(new frmSanPham());
-            Application.Run(new frmHoaDon());
+            //Application.Run(new frmHoaDon());
+            Application.Run(new frmMain());
 
         }
     }

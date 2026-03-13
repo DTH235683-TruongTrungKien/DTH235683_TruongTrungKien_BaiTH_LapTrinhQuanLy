@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
-
+using System;
 public static class SlugHelper
 {
     public static string GenerateSlug(this string text)
